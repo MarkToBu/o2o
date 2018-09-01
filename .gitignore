@@ -1,7 +1,6 @@
 *.class
 
-# package file
-
+#gpackage file
 *.war
 *.ear
 
@@ -16,7 +15,7 @@ out/
 .project
 .classpatch
 
-#  idea
+#idea
 .idea/
 /idea/
 *.ipr
