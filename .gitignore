@@ -10,7 +10,7 @@
 
 # maven_ignore
 target/
-
+out/
 #eclipse ignore
 .settings/
 .project
@@ -33,3 +33,4 @@ target/
 # system ignore
 .DS_Store
 Thumbs.db
+.idea
