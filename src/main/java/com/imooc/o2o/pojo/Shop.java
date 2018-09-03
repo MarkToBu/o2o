@@ -21,7 +21,7 @@ public class Shop {
 	private Integer enableStatus;
 	private String advice;
 
-	private List<ShopAuthMap> staffList;
+//	private List<ShopAuthMap> staffList;
 	private Area area;
 	private ShopCategory shopCategory;
 	private ShopCategory parentCategory;
@@ -138,13 +138,13 @@ public class Shop {
 		this.enableStatus = enableStatus;
 	}
 
-	public List<ShopAuthMap> getStaffList() {
+	/*public List<ShopAuthMap> getStaffList() {
 		return staffList;
 	}
 
 	public void setStaffList(List<ShopAuthMap> staffList) {
 		this.staffList = staffList;
-	}
+	}*/
 
 	public Area getArea() {
 		return area;
@@ -170,6 +170,7 @@ public class Shop {
 		this.advice = advice;
 	}
 
+	@Override
 	public String toString() {
 		return "[shopId=" + shopId + ", shopName=" + shopName + "]";
 	}
