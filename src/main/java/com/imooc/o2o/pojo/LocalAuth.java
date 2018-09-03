@@ -3,68 +3,76 @@ package com.imooc.o2o.pojo;
 import java.util.Date;
 
 public class LocalAuth {
-	private Long localAuthId;
-	private String userName;
-	private String password;
-	private Long userId;
-	private Date createTime;
-	private Date lastEditTime;
-	private PersonInfo personInfo;
+    private Integer localAuthId;
 
-	public Long getLocalAuthId() {
-		return localAuthId;
-	}
+    private Integer userId;
 
-	public void setLocalAuthId(Long localAuthId) {
-		this.localAuthId = localAuthId;
-	}
+    private String userName;
 
-	public String getUserName() {
-		return userName;
-	}
+    private String password;
 
-	public void setUserName(String userName) {
-		this.userName = userName;
-	}
+    private Date createTime;
 
-	public String getPassword() {
-		return password;
-	}
+    private Date lastEditTime;
 
-	public void setPassword(String password) {
-		this.password = password;
-	}
+    public LocalAuth(Integer localAuthId, Integer userId, String userName, String password, Date createTime, Date lastEditTime) {
+        this.localAuthId = localAuthId;
+        this.userId = userId;
+        this.userName = userName;
+        this.password = password;
+        this.createTime = createTime;
+        this.lastEditTime = lastEditTime;
+    }
 
-	public Long getUserId() {
-		return userId;
-	}
+    public LocalAuth() {
+        super();
+    }
 
-	public void setUserId(Long userId) {
-		this.userId = userId;
-	}
+    public Integer getLocalAuthId() {
+        return localAuthId;
+    }
 
-	public Date getCreateTime() {
-		return createTime;
-	}
+    public void setLocalAuthId(Integer localAuthId) {
+        this.localAuthId = localAuthId;
+    }
 
-	public void setCreateTime(Date createTime) {
-		this.createTime = createTime;
-	}
+    public Integer getUserId() {
+        return userId;
+    }
 
-	public Date getLastEditTime() {
-		return lastEditTime;
-	}
+    public void setUserId(Integer userId) {
+        this.userId = userId;
+    }
 
-	public void setLastEditTime(Date lastEditTime) {
-		this.lastEditTime = lastEditTime;
-	}
+    public String getUserName() {
+        return userName;
+    }
 
-	public PersonInfo getPersonInfo() {
-		return personInfo;
-	}
+    public void setUserName(String userName) {
+        this.userName = userName == null ? null : userName.trim();
+    }
 
-	public void setPersonInfo(PersonInfo personInfo) {
-		this.personInfo = personInfo;
-	}
+    public String getPassword() {
+        return password;
+    }
 
+    public void setPassword(String password) {
+        this.password = password == null ? null : password.trim();
+    }
+
+    public Date getCreateTime() {
+        return createTime;
+    }
+
+    public void setCreateTime(Date createTime) {
+        this.createTime = createTime;
+    }
+
+    public Date getLastEditTime() {
+        return lastEditTime;
+    }
+
+    public void setLastEditTime(Date lastEditTime) {
+        this.lastEditTime = lastEditTime;
+    }
 }

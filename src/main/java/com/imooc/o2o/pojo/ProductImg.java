@@ -3,59 +3,76 @@ package com.imooc.o2o.pojo;
 import java.util.Date;
 
 public class ProductImg {
-	private Long productImgId;
-	private String imgAddr;
-	private String imgDesc;
-	private Integer priority;
-	private Date createTime;
-	private Long productId;
+    private Integer productImgId;
 
-	public Long getProductImgId() {
-		return productImgId;
-	}
+    private String imgAddr;
 
-	public void setProductImgId(Long productImgId) {
-		this.productImgId = productImgId;
-	}
+    private String imgDesc;
 
-	public String getImgAddr() {
-		return imgAddr;
-	}
+    private Integer priority;
 
-	public void setImgAddr(String imgAddr) {
-		this.imgAddr = imgAddr;
-	}
+    private Date createTime;
 
-	public String getImgDesc() {
-		return imgDesc;
-	}
+    private Integer productId;
 
-	public void setImgDesc(String imgDesc) {
-		this.imgDesc = imgDesc;
-	}
+    public ProductImg(Integer productImgId, String imgAddr, String imgDesc, Integer priority, Date createTime, Integer productId) {
+        this.productImgId = productImgId;
+        this.imgAddr = imgAddr;
+        this.imgDesc = imgDesc;
+        this.priority = priority;
+        this.createTime = createTime;
+        this.productId = productId;
+    }
 
-	public Integer getPriority() {
-		return priority;
-	}
+    public ProductImg() {
+        super();
+    }
 
-	public void setPriority(Integer priority) {
-		this.priority = priority;
-	}
+    public Integer getProductImgId() {
+        return productImgId;
+    }
 
-	public Date getCreateTime() {
-		return createTime;
-	}
+    public void setProductImgId(Integer productImgId) {
+        this.productImgId = productImgId;
+    }
 
-	public void setCreateTime(Date createTime) {
-		this.createTime = createTime;
-	}
+    public String getImgAddr() {
+        return imgAddr;
+    }
 
-	public Long getProductId() {
-		return productId;
-	}
+    public void setImgAddr(String imgAddr) {
+        this.imgAddr = imgAddr == null ? null : imgAddr.trim();
+    }
 
-	public void setProductId(Long productId) {
-		this.productId = productId;
-	}
+    public String getImgDesc() {
+        return imgDesc;
+    }
 
+    public void setImgDesc(String imgDesc) {
+        this.imgDesc = imgDesc == null ? null : imgDesc.trim();
+    }
+
+    public Integer getPriority() {
+        return priority;
+    }
+
+    public void setPriority(Integer priority) {
+        this.priority = priority;
+    }
+
+    public Date getCreateTime() {
+        return createTime;
+    }
+
+    public void setCreateTime(Date createTime) {
+        this.createTime = createTime;
+    }
+
+    public Integer getProductId() {
+        return productId;
+    }
+
+    public void setProductId(Integer productId) {
+        this.productId = productId;
+    }
 }

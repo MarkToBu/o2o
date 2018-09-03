@@ -25,11 +25,11 @@
     where area_id = #{areaId,jdbcType=INTEGER}
   </delete>
   <insert id="insert" parameterType="com.imooc.o2o.pojo.Area" >
-    insert into tb_area ( area_name, area_desc,
+    insert into tb_area (area_id, area_name, area_desc, 
       priority, create_time, last_edit_time
       )
-    values ( #{areaName,jdbcType=VARCHAR}, #{areaDesc,jdbcType=VARCHAR},
-      #{priority,jdbcType=INTEGER}, now(),now()
+    values (#{areaId,jdbcType=INTEGER}, #{areaName,jdbcType=VARCHAR}, #{areaDesc,jdbcType=VARCHAR}, 
+      #{priority,jdbcType=INTEGER}, #{createTime,jdbcType=TIMESTAMP}, #{lastEditTime,jdbcType=TIMESTAMP}
       )
   </insert>
   <insert id="insertSelective" parameterType="com.imooc.o2o.pojo.Area" >

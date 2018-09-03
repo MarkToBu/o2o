@@ -3,77 +3,98 @@ package com.imooc.o2o.pojo;
 import java.util.Date;
 
 public class HeadLine {
-	private Long lineId;
-	private String lineName;
-	private String lineLink;
-	private String lineImg;
-	private Integer priority;
-	private Integer enableStatus;
-	private Date createTime;
-	private Date lastEditTime;
+    private Integer lineId;
 
-	public Long getLineId() {
-		return lineId;
-	}
+    private String lineName;
 
-	public void setLineId(Long lineId) {
-		this.lineId = lineId;
-	}
+    private String lineLink;
 
-	public String getLineName() {
-		return lineName;
-	}
+    private String lineImg;
 
-	public void setLineName(String lineName) {
-		this.lineName = lineName;
-	}
+    private Integer priority;
 
-	public String getLineLink() {
-		return lineLink;
-	}
+    private Integer enableStatus;
 
-	public void setLineLink(String lineLink) {
-		this.lineLink = lineLink;
-	}
+    private Date createTime;
 
-	public String getLineImg() {
-		return lineImg;
-	}
+    private Date lastEditTime;
 
-	public void setLineImg(String lineImg) {
-		this.lineImg = lineImg;
-	}
+    public HeadLine(Integer lineId, String lineName, String lineLink, String lineImg, Integer priority, Integer enableStatus, Date createTime, Date lastEditTime) {
+        this.lineId = lineId;
+        this.lineName = lineName;
+        this.lineLink = lineLink;
+        this.lineImg = lineImg;
+        this.priority = priority;
+        this.enableStatus = enableStatus;
+        this.createTime = createTime;
+        this.lastEditTime = lastEditTime;
+    }
 
-	public Integer getPriority() {
-		return priority;
-	}
+    public HeadLine() {
+        super();
+    }
 
-	public void setPriority(Integer priority) {
-		this.priority = priority;
-	}
+    public Integer getLineId() {
+        return lineId;
+    }
 
-	public Integer getEnableStatus() {
-		return enableStatus;
-	}
+    public void setLineId(Integer lineId) {
+        this.lineId = lineId;
+    }
 
-	public void setEnableStatus(Integer enableStatus) {
-		this.enableStatus = enableStatus;
-	}
+    public String getLineName() {
+        return lineName;
+    }
 
-	public Date getCreateTime() {
-		return createTime;
-	}
+    public void setLineName(String lineName) {
+        this.lineName = lineName == null ? null : lineName.trim();
+    }
 
-	public void setCreateTime(Date createTime) {
-		this.createTime = createTime;
-	}
+    public String getLineLink() {
+        return lineLink;
+    }
 
-	public Date getLastEditTime() {
-		return lastEditTime;
-	}
+    public void setLineLink(String lineLink) {
+        this.lineLink = lineLink == null ? null : lineLink.trim();
+    }
 
-	public void setLastEditTime(Date lastEditTime) {
-		this.lastEditTime = lastEditTime;
-	}
+    public String getLineImg() {
+        return lineImg;
+    }
 
+    public void setLineImg(String lineImg) {
+        this.lineImg = lineImg == null ? null : lineImg.trim();
+    }
+
+    public Integer getPriority() {
+        return priority;
+    }
+
+    public void setPriority(Integer priority) {
+        this.priority = priority;
+    }
+
+    public Integer getEnableStatus() {
+        return enableStatus;
+    }
+
+    public void setEnableStatus(Integer enableStatus) {
+        this.enableStatus = enableStatus;
+    }
+
+    public Date getCreateTime() {
+        return createTime;
+    }
+
+    public void setCreateTime(Date createTime) {
+        this.createTime = createTime;
+    }
+
+    public Date getLastEditTime() {
+        return lastEditTime;
+    }
+
+    public void setLastEditTime(Date lastEditTime) {
+        this.lastEditTime = lastEditTime;
+    }
 }

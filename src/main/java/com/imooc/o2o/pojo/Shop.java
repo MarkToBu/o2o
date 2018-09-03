@@ -1,186 +1,199 @@
 package com.imooc.o2o.pojo;
 
 import java.util.Date;
-import java.util.List;
 
 public class Shop {
+    private Integer shopId;
 
-	private Long shopId;
-	private Long ownerId;
-	private Long shopCategoryId;
-	private String shopName;
-	private String shopDesc;
-	private String shopAddr;
-	private String phone;
-	private String shopImg;
-	private Double longitude;
-	private Double latitude;
-	private Integer priority;
-	private Date createTime;
-	private Date lastEditTime;
-	private Integer enableStatus;
-	private String advice;
+    private Integer ownerId;
 
-//	private List<ShopAuthMap> staffList;
-	private Area area;
-	private ShopCategory shopCategory;
-	private ShopCategory parentCategory;
+    private Integer areaId;
 
-	public Long getShopId() {
-		return shopId;
-	}
+    private Integer shopCategoryId;
 
-	public void setShopId(Long shopId) {
-		this.shopId = shopId;
-	}
+    private Integer parentCategoryId;
 
-	public Long getOwnerId() {
-		return ownerId;
-	}
+    private String shopName;
 
-	public void setOwnerId(Long ownerId) {
-		this.ownerId = ownerId;
-	}
+    private String shopDesc;
 
-	public Long getShopCategoryId() {
-		return shopCategoryId;
-	}
+    private String shopAddr;
 
-	public void setShopCategoryId(Long shopCategoryId) {
-		this.shopCategoryId = shopCategoryId;
-	}
+    private String phone;
 
-	public String getShopName() {
-		return shopName;
-	}
+    private String shopImg;
 
-	public void setShopName(String shopName) {
-		this.shopName = shopName;
-	}
+    private Double longitude;
 
-	public String getShopDesc() {
-		return shopDesc;
-	}
+    private Double latitude;
 
-	public void setShopDesc(String shopDesc) {
-		this.shopDesc = shopDesc;
-	}
+    private Integer priority;
 
-	public String getShopAddr() {
-		return shopAddr;
-	}
+    private Date createTime;
 
-	public void setShopAddr(String shopAddr) {
-		this.shopAddr = shopAddr;
-	}
+    private Date lastEditTime;
 
-	public String getPhone() {
-		return phone;
-	}
+    private Integer enableStatus;
 
-	public void setPhone(String phone) {
-		this.phone = phone;
-	}
+    private String advice;
 
-	public String getShopImg() {
-		return shopImg;
-	}
+    public Shop(Integer shopId, Integer ownerId, Integer areaId, Integer shopCategoryId, Integer parentCategoryId, String shopName, String shopDesc, String shopAddr, String phone, String shopImg, Double longitude, Double latitude, Integer priority, Date createTime, Date lastEditTime, Integer enableStatus, String advice) {
+        this.shopId = shopId;
+        this.ownerId = ownerId;
+        this.areaId = areaId;
+        this.shopCategoryId = shopCategoryId;
+        this.parentCategoryId = parentCategoryId;
+        this.shopName = shopName;
+        this.shopDesc = shopDesc;
+        this.shopAddr = shopAddr;
+        this.phone = phone;
+        this.shopImg = shopImg;
+        this.longitude = longitude;
+        this.latitude = latitude;
+        this.priority = priority;
+        this.createTime = createTime;
+        this.lastEditTime = lastEditTime;
+        this.enableStatus = enableStatus;
+        this.advice = advice;
+    }
 
-	public void setShopImg(String shopImg) {
-		this.shopImg = shopImg;
-	}
+    public Shop() {
+        super();
+    }
 
-	public Double getLongitude() {
-		return longitude;
-	}
+    public Integer getShopId() {
+        return shopId;
+    }
 
-	public void setLongitude(Double longitude) {
-		this.longitude = longitude;
-	}
+    public void setShopId(Integer shopId) {
+        this.shopId = shopId;
+    }
 
-	public Double getLatitude() {
-		return latitude;
-	}
+    public Integer getOwnerId() {
+        return ownerId;
+    }
 
-	public void setLatitude(Double latitude) {
-		this.latitude = latitude;
-	}
+    public void setOwnerId(Integer ownerId) {
+        this.ownerId = ownerId;
+    }
 
-	public Integer getPriority() {
-		return priority;
-	}
+    public Integer getAreaId() {
+        return areaId;
+    }
 
-	public void setPriority(Integer priority) {
-		this.priority = priority;
-	}
+    public void setAreaId(Integer areaId) {
+        this.areaId = areaId;
+    }
 
-	public Date getCreateTime() {
-		return createTime;
-	}
+    public Integer getShopCategoryId() {
+        return shopCategoryId;
+    }
 
-	public void setCreateTime(Date createTime) {
-		this.createTime = createTime;
-	}
+    public void setShopCategoryId(Integer shopCategoryId) {
+        this.shopCategoryId = shopCategoryId;
+    }
 
-	public Date getLastEditTime() {
-		return lastEditTime;
-	}
+    public Integer getParentCategoryId() {
+        return parentCategoryId;
+    }
 
-	public void setLastEditTime(Date lastEditTime) {
-		this.lastEditTime = lastEditTime;
-	}
+    public void setParentCategoryId(Integer parentCategoryId) {
+        this.parentCategoryId = parentCategoryId;
+    }
 
-	public Integer getEnableStatus() {
-		return enableStatus;
-	}
+    public String getShopName() {
+        return shopName;
+    }
 
-	public void setEnableStatus(Integer enableStatus) {
-		this.enableStatus = enableStatus;
-	}
+    public void setShopName(String shopName) {
+        this.shopName = shopName == null ? null : shopName.trim();
+    }
 
-	/*public List<ShopAuthMap> getStaffList() {
-		return staffList;
-	}
+    public String getShopDesc() {
+        return shopDesc;
+    }
 
-	public void setStaffList(List<ShopAuthMap> staffList) {
-		this.staffList = staffList;
-	}*/
+    public void setShopDesc(String shopDesc) {
+        this.shopDesc = shopDesc == null ? null : shopDesc.trim();
+    }
 
-	public Area getArea() {
-		return area;
-	}
+    public String getShopAddr() {
+        return shopAddr;
+    }
 
-	public void setArea(Area area) {
-		this.area = area;
-	}
+    public void setShopAddr(String shopAddr) {
+        this.shopAddr = shopAddr == null ? null : shopAddr.trim();
+    }
 
-	public ShopCategory getShopCategory() {
-		return shopCategory;
-	}
+    public String getPhone() {
+        return phone;
+    }
 
-	public void setShopCategory(ShopCategory shopCategory) {
-		this.shopCategory = shopCategory;
-	}
+    public void setPhone(String phone) {
+        this.phone = phone == null ? null : phone.trim();
+    }
 
-	public String getAdvice() {
-		return advice;
-	}
+    public String getShopImg() {
+        return shopImg;
+    }
 
-	public void setAdvice(String advice) {
-		this.advice = advice;
-	}
+    public void setShopImg(String shopImg) {
+        this.shopImg = shopImg == null ? null : shopImg.trim();
+    }
 
-	@Override
-	public String toString() {
-		return "[shopId=" + shopId + ", shopName=" + shopName + "]";
-	}
+    public Double getLongitude() {
+        return longitude;
+    }
 
-	public ShopCategory getParentCategory() {
-		return parentCategory;
-	}
+    public void setLongitude(Double longitude) {
+        this.longitude = longitude;
+    }
 
-	public void setParentCategory(ShopCategory parentCategory) {
-		this.parentCategory = parentCategory;
-	}
+    public Double getLatitude() {
+        return latitude;
+    }
 
+    public void setLatitude(Double latitude) {
+        this.latitude = latitude;
+    }
+
+    public Integer getPriority() {
+        return priority;
+    }
+
+    public void setPriority(Integer priority) {
+        this.priority = priority;
+    }
+
+    public Date getCreateTime() {
+        return createTime;
+    }
+
+    public void setCreateTime(Date createTime) {
+        this.createTime = createTime;
+    }
+
+    public Date getLastEditTime() {
+        return lastEditTime;
+    }
+
+    public void setLastEditTime(Date lastEditTime) {
+        this.lastEditTime = lastEditTime;
+    }
+
+    public Integer getEnableStatus() {
+        return enableStatus;
+    }
+
+    public void setEnableStatus(Integer enableStatus) {
+        this.enableStatus = enableStatus;
+    }
+
+    public String getAdvice() {
+        return advice;
+    }
+
+    public void setAdvice(String advice) {
+        this.advice = advice == null ? null : advice.trim();
+    }
 }

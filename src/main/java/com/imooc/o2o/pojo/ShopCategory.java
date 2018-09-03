@@ -3,78 +3,98 @@ package com.imooc.o2o.pojo;
 import java.util.Date;
 
 public class ShopCategory {
+    private Integer shopCategoryId;
 
-	private Long shopCategoryId;
-	private String shopCategoryName;
-	private String shopCategoryDesc;
-	private String shopCategoryImg;
-	private Integer priority;
-	private Date createTime;
-	private Date lastEditTime;
-	private Long parentId;
+    private String shopCategoryName;
 
-	public Long getShopCategoryId() {
-		return shopCategoryId;
-	}
+    private String shopCategoryDesc;
 
-	public void setShopCategoryId(Long shopCategoryId) {
-		this.shopCategoryId = shopCategoryId;
-	}
+    private String shopCategoryImg;
 
-	public String getShopCategoryName() {
-		return shopCategoryName;
-	}
+    private Integer priority;
 
-	public void setShopCategoryName(String shopCategoryName) {
-		this.shopCategoryName = shopCategoryName;
-	}
+    private Date createTime;
 
-	public String getShopCategoryDesc() {
-		return shopCategoryDesc;
-	}
+    private Date lastEditTime;
 
-	public void setShopCategoryDesc(String shopCategoryDesc) {
-		this.shopCategoryDesc = shopCategoryDesc;
-	}
+    private Integer parentId;
 
-	public String getShopCategoryImg() {
-		return shopCategoryImg;
-	}
+    public ShopCategory(Integer shopCategoryId, String shopCategoryName, String shopCategoryDesc, String shopCategoryImg, Integer priority, Date createTime, Date lastEditTime, Integer parentId) {
+        this.shopCategoryId = shopCategoryId;
+        this.shopCategoryName = shopCategoryName;
+        this.shopCategoryDesc = shopCategoryDesc;
+        this.shopCategoryImg = shopCategoryImg;
+        this.priority = priority;
+        this.createTime = createTime;
+        this.lastEditTime = lastEditTime;
+        this.parentId = parentId;
+    }
 
-	public void setShopCategoryImg(String shopCategoryImg) {
-		this.shopCategoryImg = shopCategoryImg;
-	}
+    public ShopCategory() {
+        super();
+    }
 
-	public Integer getPriority() {
-		return priority;
-	}
+    public Integer getShopCategoryId() {
+        return shopCategoryId;
+    }
 
-	public void setPriority(Integer priority) {
-		this.priority = priority;
-	}
+    public void setShopCategoryId(Integer shopCategoryId) {
+        this.shopCategoryId = shopCategoryId;
+    }
 
-	public Date getCreateTime() {
-		return createTime;
-	}
+    public String getShopCategoryName() {
+        return shopCategoryName;
+    }
 
-	public void setCreateTime(Date createTime) {
-		this.createTime = createTime;
-	}
+    public void setShopCategoryName(String shopCategoryName) {
+        this.shopCategoryName = shopCategoryName == null ? null : shopCategoryName.trim();
+    }
 
-	public Date getLastEditTime() {
-		return lastEditTime;
-	}
+    public String getShopCategoryDesc() {
+        return shopCategoryDesc;
+    }
 
-	public void setLastEditTime(Date lastEditTime) {
-		this.lastEditTime = lastEditTime;
-	}
+    public void setShopCategoryDesc(String shopCategoryDesc) {
+        this.shopCategoryDesc = shopCategoryDesc == null ? null : shopCategoryDesc.trim();
+    }
 
-	public Long getParentId() {
-		return parentId;
-	}
+    public String getShopCategoryImg() {
+        return shopCategoryImg;
+    }
 
-	public void setParentId(Long parentId) {
-		this.parentId = parentId;
-	}
+    public void setShopCategoryImg(String shopCategoryImg) {
+        this.shopCategoryImg = shopCategoryImg == null ? null : shopCategoryImg.trim();
+    }
 
+    public Integer getPriority() {
+        return priority;
+    }
+
+    public void setPriority(Integer priority) {
+        this.priority = priority;
+    }
+
+    public Date getCreateTime() {
+        return createTime;
+    }
+
+    public void setCreateTime(Date createTime) {
+        this.createTime = createTime;
+    }
+
+    public Date getLastEditTime() {
+        return lastEditTime;
+    }
+
+    public void setLastEditTime(Date lastEditTime) {
+        this.lastEditTime = lastEditTime;
+    }
+
+    public Integer getParentId() {
+        return parentId;
+    }
+
+    public void setParentId(Integer parentId) {
+        this.parentId = parentId;
+    }
 }

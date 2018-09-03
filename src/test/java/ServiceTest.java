@@ -1,11 +1,6 @@
-import com.imooc.o2o.dao.AreaMapper;
-import com.imooc.o2o.pojo.Area;
 import com.imooc.o2o.service.IAreaService;
-import com.imooc.o2o.service.impl.AreaServiceImpl;
 import org.junit.Test;
 import org.springframework.beans.factory.annotation.Autowired;
-
-import java.util.Map;
 
 public class ServiceTest extends BaseTest{
     @Autowired

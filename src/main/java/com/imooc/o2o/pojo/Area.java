@@ -3,59 +3,76 @@ package com.imooc.o2o.pojo;
 import java.util.Date;
 
 public class Area {
-	private Long areaId;
-	private String areaName;
-	private String areaDesc;
-	private Integer priority;
-	private Date createTime;
-	private Date lastEditTime;
+    private Integer areaId;
 
-	public Long getAreaId() {
-		return areaId;
-	}
+    private String areaName;
 
-	public void setAreaId(Long areaId) {
-		this.areaId = areaId;
-	}
+    private String areaDesc;
 
-	public String getAreaName() {
-		return areaName;
-	}
+    private Integer priority;
 
-	public void setAreaName(String areaName) {
-		this.areaName = areaName;
-	}
+    private Date createTime;
 
-	public String getAreaDesc() {
-		return areaDesc;
-	}
+    private Date lastEditTime;
 
-	public void setAreaDesc(String areaDesc) {
-		this.areaDesc = areaDesc;
-	}
+    public Area(Integer areaId, String areaName, String areaDesc, Integer priority, Date createTime, Date lastEditTime) {
+        this.areaId = areaId;
+        this.areaName = areaName;
+        this.areaDesc = areaDesc;
+        this.priority = priority;
+        this.createTime = createTime;
+        this.lastEditTime = lastEditTime;
+    }
 
-	public Integer getPriority() {
-		return priority;
-	}
+    public Area() {
+        super();
+    }
 
-	public void setPriority(Integer priority) {
-		this.priority = priority;
-	}
+    public Integer getAreaId() {
+        return areaId;
+    }
 
-	public Date getCreateTime() {
-		return createTime;
-	}
+    public void setAreaId(Integer areaId) {
+        this.areaId = areaId;
+    }
 
-	public void setCreateTime(Date createTime) {
-		this.createTime = createTime;
-	}
+    public String getAreaName() {
+        return areaName;
+    }
 
-	public Date getLastEditTime() {
-		return lastEditTime;
-	}
+    public void setAreaName(String areaName) {
+        this.areaName = areaName == null ? null : areaName.trim();
+    }
 
-	public void setLastEditTime(Date lastEditTime) {
-		this.lastEditTime = lastEditTime;
-	}
+    public String getAreaDesc() {
+        return areaDesc;
+    }
 
+    public void setAreaDesc(String areaDesc) {
+        this.areaDesc = areaDesc == null ? null : areaDesc.trim();
+    }
+
+    public Integer getPriority() {
+        return priority;
+    }
+
+    public void setPriority(Integer priority) {
+        this.priority = priority;
+    }
+
+    public Date getCreateTime() {
+        return createTime;
+    }
+
+    public void setCreateTime(Date createTime) {
+        this.createTime = createTime;
+    }
+
+    public Date getLastEditTime() {
+        return lastEditTime;
+    }
+
+    public void setLastEditTime(Date lastEditTime) {
+        this.lastEditTime = lastEditTime;
+    }
 }
