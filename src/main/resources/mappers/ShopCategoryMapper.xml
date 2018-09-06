@@ -23,6 +23,17 @@
     from tb_shop_category
     where shop_category_id = #{shopCategoryId,jdbcType=INTEGER}
   </select>
+  <select id="selectShopCategoryByParentId" resultType="com.imooc.o2o.pojo.ShopCategory" parameterType="integer">
+    select
+    <include refid="Base_Column_List"/>
+      from tb_shop_category
+      <where>
+          <if test="parentCategoryId != null">
+              and parent_id = #{parentCategoryId}
+          </if>
+      </where>
+
+  </select>
   <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
     delete from tb_shop_category
     where shop_category_id = #{shopCategoryId,jdbcType=INTEGER}

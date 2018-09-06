@@ -37,26 +37,23 @@
     delete from tb_shop
     where shop_id = #{shopId,jdbcType=INTEGER}
   </delete>
-  <insert id="insert" parameterType="com.imooc.o2o.pojo.Shop" >
-    insert into tb_shop (shop_id, owner_id, area_id, 
+  <insert id="insert" parameterType="com.imooc.o2o.pojo.Shop" useGeneratedKeys="true" keyProperty="userId">
+    insert into tb_shop ( owner_id, area_id,
       shop_category_id, parent_category_id, shop_name, 
       shop_desc, shop_addr, phone, 
       shop_img, longitude, latitude, 
       priority, create_time, last_edit_time, 
       enable_status, advice)
-    values (#{shopId,jdbcType=INTEGER}, #{ownerId,jdbcType=INTEGER}, #{areaId,jdbcType=INTEGER}, 
+    values ( #{ownerId,jdbcType=INTEGER}, #{areaId,jdbcType=INTEGER},
       #{shopCategoryId,jdbcType=INTEGER}, #{parentCategoryId,jdbcType=INTEGER}, #{shopName,jdbcType=VARCHAR}, 
       #{shopDesc,jdbcType=VARCHAR}, #{shopAddr,jdbcType=VARCHAR}, #{phone,jdbcType=VARCHAR}, 
       #{shopImg,jdbcType=VARCHAR}, #{longitude,jdbcType=DOUBLE}, #{latitude,jdbcType=DOUBLE}, 
-      #{priority,jdbcType=INTEGER}, #{createTime,jdbcType=TIMESTAMP}, #{lastEditTime,jdbcType=TIMESTAMP}, 
+      #{priority,jdbcType=INTEGER}, now(), now(),
       #{enableStatus,jdbcType=INTEGER}, #{advice,jdbcType=VARCHAR})
   </insert>
-  <insert id="insertSelective" parameterType="com.imooc.o2o.pojo.Shop" >
+  <insert id="insertSelective" parameterType="com.imooc.o2o.pojo.Shop"  useGeneratedKeys="true" keyProperty="userId">
     insert into tb_shop
     <trim prefix="(" suffix=")" suffixOverrides="," >
-      <if test="shopId != null" >
-        shop_id,
-      </if>
       <if test="ownerId != null" >
         owner_id,
       </if>
@@ -107,9 +104,6 @@
       </if>
     </trim>
     <trim prefix="values (" suffix=")" suffixOverrides="," >
-      <if test="shopId != null" >
-        #{shopId,jdbcType=INTEGER},
-      </if>
       <if test="ownerId != null" >
         #{ownerId,jdbcType=INTEGER},
       </if>
@@ -147,10 +141,10 @@
         #{priority,jdbcType=INTEGER},
       </if>
       <if test="createTime != null" >
-        #{createTime,jdbcType=TIMESTAMP},
+         now(),
       </if>
       <if test="lastEditTime != null" >
-        #{lastEditTime,jdbcType=TIMESTAMP},
+         now(),
       </if>
       <if test="enableStatus != null" >
         #{enableStatus,jdbcType=INTEGER},
