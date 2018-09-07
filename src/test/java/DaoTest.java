@@ -37,8 +37,12 @@ public class DaoTest extends  BaseTest{
         }
         @Test
         public void selectShopCategory(){
-            List<ShopCategory> shopCategories = shopCategoryMapper.selectShopCategoryByParentId(10);
-            assertEquals(2,shopCategories.size());
+            List<ShopCategory> shopCategories = shopCategoryMapper.selectShopCategoryByParentId(null);
+            assertEquals(12,shopCategories.size());
+            for (ShopCategory shopCategory : shopCategories) {
+                System.out.println(shopCategory.getParentId());
+            }
+
             //ShopCategory shopCategory = shopCategoryMapper.selectByPrimaryKey(10);
 
         }

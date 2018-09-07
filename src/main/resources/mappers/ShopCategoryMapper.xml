@@ -28,6 +28,7 @@
     <include refid="Base_Column_List"/>
       from tb_shop_category
       <where>
+         and  parent_id is not null
           <if test="parentCategoryId != null">
               and parent_id = #{parentCategoryId}
           </if>

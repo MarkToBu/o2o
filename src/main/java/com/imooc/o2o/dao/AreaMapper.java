@@ -2,6 +2,8 @@ package com.imooc.o2o.dao;
 
 import com.imooc.o2o.pojo.Area;
 
+import java.util.List;
+
 public interface AreaMapper {
     int deleteByPrimaryKey(Integer areaId);
 
@@ -14,4 +16,6 @@ public interface AreaMapper {
     int updateByPrimaryKeySelective(Area record);
 
     int updateByPrimaryKey(Area record);
+
+    List<Area> selectAreaList();
 }
