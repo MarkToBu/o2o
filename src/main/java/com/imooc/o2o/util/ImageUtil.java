@@ -8,6 +8,7 @@ import org.springframework.web.multipart.commons.CommonsMultipartFile;
 
 import javax.imageio.ImageIO;
 import java.io.File;
+import java.io.InputStream;
 
 /**
  * @author lee
@@ -15,14 +16,14 @@ import java.io.File;
  */
 public class ImageUtil {
     private static String basePath = Thread.currentThread().getContextClassLoader().getResource("").getPath();
-    public static String generateThumbnail( CommonsMultipartFile thumbnail, String targetAddr){
+    public static String generateThumbnail(InputStream thumbnail,String fileName, String targetAddr){
         String realFileName = FileUtil.getRandomFileName();
-        String extension = getFileExtension(thumbnail);
+        String extension = getFileExtension(fileName);
         makeDirPath(targetAddr);
         String relativeAddr = targetAddr + realFileName + extension;
         File dest = new File(FileUtil.getImgBasePath() + relativeAddr);
         try {
-            Thumbnails.of(thumbnail.getInputStream()).size(200,200).watermark(Positions.BOTTOM_RIGHT,ImageIO.read(new File(basePath +"/watermark.jpg")),0.2f)
+            Thumbnails.of(thumbnail).size(200,200).watermark(Positions.TOP_RIGHT,ImageIO.read(new File(basePath +"watermark.jpg")),0.2f)
                     .outputQuality(0.8f).toFile(dest);
         }catch (Exception ex){
             throw new RuntimeException("创建缩略图失败" + extension.toString());
@@ -40,9 +41,9 @@ public class ImageUtil {
     }
 
     /**  获取文件的扩展名 */
-    private static String getFileExtension(CommonsMultipartFile cFile){
-        String originalFileName = cFile.getOriginalFilename();
-        return originalFileName.substring(originalFileName.lastIndexOf("."));
+    private static String getFileExtension(String fileName){
+        //String originalFileName = cFile.getOriginalFilename();
+        return fileName.substring(fileName.lastIndexOf("."));
     }
 
 }

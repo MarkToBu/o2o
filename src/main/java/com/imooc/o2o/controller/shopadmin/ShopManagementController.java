@@ -2,7 +2,6 @@ package com.imooc.o2o.controller.shopadmin;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.imooc.o2o.common.ShopStateEnum;
-import com.imooc.o2o.dao.ShopCategoryMapper;
 import com.imooc.o2o.dto.ShopExecution;
 import com.imooc.o2o.pojo.Area;
 import com.imooc.o2o.pojo.PersonInfo;
@@ -11,6 +10,7 @@ import com.imooc.o2o.pojo.ShopCategory;
 import com.imooc.o2o.service.IAreaService;
 import com.imooc.o2o.service.IShopCategoryService;
 import com.imooc.o2o.service.IShopService;
+import com.imooc.o2o.util.CodeUtil;
 import com.imooc.o2o.util.FileUtil;
 import com.imooc.o2o.util.HttpServletRequestUtil;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -43,6 +43,11 @@ public class ShopManagementController {
     @RequestMapping(value = "registershop",method = RequestMethod.POST)
     private Map<String,Object> registerShop(HttpServletRequest request){
         Map<String,Object> modelMap = new HashMap<>();
+        if(!CodeUtil.checkVerifyCode(request)){
+            modelMap.put("success",false);
+            modelMap.put("errMsg","输入了错误的验证码");
+            return modelMap;
+        }
         String shopStr = HttpServletRequestUtil.getString(request,"shopStr");
         ObjectMapper objectMapper = new ObjectMapper();
         Shop shop = null;
@@ -70,9 +75,13 @@ public class ShopManagementController {
         //注册店铺
         if(shop != null && shopImg != null){
             PersonInfo owner = new PersonInfo();
+            //Session Todo
             owner.setUserId(8);
             shop.setOwnerId(owner.getUserId());
             File shopImgFile = new File(FileUtil.getImgBasePath() + FileUtil.getRandomFileName());
+            if(!shopImgFile.exists()){
+                shopImgFile.mkdirs();
+            }
             try {
                 shopImgFile.createNewFile();
             }catch (IOException ex){
@@ -80,12 +89,16 @@ public class ShopManagementController {
                 modelMap.put("errMsg", ex.getMessage());
                 return modelMap;
             }
+
+               // inputStreamToFile(shopImg.getInputStream(),shopImgFile);
+
+            ShopExecution se = null;
             try {
-                inputStreamToFile(shopImg.getInputStream(),shopImgFile);
+                se = shopService.addShop(shop,shopImg.getInputStream(),shopImg.getOriginalFilename());
             } catch (IOException e) {
-                e.printStackTrace();
+                modelMap.put("success",false);
+                modelMap.put("errMsg",e.getMessage());
             }
-            ShopExecution se = shopService.addShop(shop,shopImg);
             if(se.getStatus() == ShopStateEnum.CHECK.getState()){
                     modelMap.put("success",true);
                     return modelMap;
@@ -123,6 +136,7 @@ public class ShopManagementController {
 
 
     /** 将流转换成文件 */
+    /**
     private void inputStreamToFile(InputStream ins, File shopImgFile) {
         try(FileOutputStream os = new FileOutputStream(shopImgFile);BufferedInputStream bufferedInputStream = new BufferedInputStream(ins)){
 
@@ -136,5 +150,5 @@ public class ShopManagementController {
         } catch (IOException e) {
             e.printStackTrace();
         }
-    }
+    }*/
 }

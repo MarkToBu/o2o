@@ -3,7 +3,7 @@
 $(function () {
     var initUrl = '/shopadmin/getshopinitinfo';
     var registerShopUrl = '/shopadmin/registershop';
-    alert(initUrl);
+    /*alert(initUrl);*/
     getShopInitfo();
     function getShopInitfo(){
         $.getJSON(initUrl,function (data) {
@@ -11,22 +11,29 @@ $(function () {
                 var tempHtml = '';
                 var tempAreaHtml = '';
                 data.shopCategoryList.map(function (item,index) {
-                    tempHtml += '<option data-id "'+item.shopCategoryId+ '">' + item.shopCategoryName +'</optioin>';
+                    tempHtml += '<option data-id= "'+item.shopCategoryId+ '">' + item.shopCategoryName +'</optioin>';
                 });
                 data.areaList.map(function (item,index) {
-                    tempAreaHtml += '<option data-id= "' + item.araId + '">'+item.areaName +'</option>';
+                    tempAreaHtml += '<option data-id= "' + item.areaId + '">'+item.areaName +'</option>';
                 });
                 $('#shop-category').html(tempHtml);
                 $("#area").html(tempAreaHtml);
             }
         });
-        $('submit').click(function () {
+        $('#submit').click(function () {
             var shop ={};
             shop.shopName = $('#shop-name').val();
             shop.shopAddr = $('#shop-addr').val();
             shop.phone = $('#shop-phone').val();
             shop.shopDesc = $('#shop-desc').val();
-            shop.shopCategory = {
+            shop.shopCategoryId = $('#shop-category').find('option').not(function () {
+                return !this.selected;
+            }).data('id');
+            shop.areaId = $('#area').find('option').not(function () {
+                return !this.selected;
+            }).data('id');
+
+            /*shop.shopCategory  = {
                 shopCategoryId :$('#shop-category').find('option').not(function () {
                     return !this.selected;
                 }).data('id')
@@ -35,17 +42,24 @@ $(function () {
                 areaId: $('#area').find('option').not(function () {
                     return !this.selected;
                 }).data('id')
-            };
-            var shopImg = $('shop-img')[0].files[0];
+            };*/
+            var shopImg = $('#shop-img')[0].files[0];
             var formData = new FormData();
             formData.append('shopImg',shopImg);
             formData.append('shopStr',JSON.stringify(shop));
+            /*验证码传入后台*/
+            var verifyCodeActual = $('#j_captcha').val();
+            if (!verifyCodeActual) {
+                $.toast('请输入验证码！');
+                return;
+            }
+            formData.append("verifyCodeActual", verifyCodeActual);
             $.ajax({
                 url:registerShopUrl,
                 type:'POST',
-                data:sormData,
+                data:formData,
                 contentType:false,
-                proceesData:false,
+                processData:false,
                 cache:false,
                 success:function (data) {
                     if(data.success){
@@ -53,6 +67,7 @@ $(function () {
                     }else{
                         $.toast('提交失败!' + data.errMsg);
                     }
+                    $('#captcha_img').click();
                 }
             })
         })

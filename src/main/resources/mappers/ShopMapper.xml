@@ -37,7 +37,7 @@
     delete from tb_shop
     where shop_id = #{shopId,jdbcType=INTEGER}
   </delete>
-  <insert id="insert" parameterType="com.imooc.o2o.pojo.Shop" useGeneratedKeys="true" keyProperty="userId">
+  <insert id="insert" parameterType="com.imooc.o2o.pojo.Shop" useGeneratedKeys="true" keyProperty="shopId">
     insert into tb_shop ( owner_id, area_id,
       shop_category_id, parent_category_id, shop_name, 
       shop_desc, shop_addr, phone, 
@@ -51,7 +51,7 @@
       #{priority,jdbcType=INTEGER}, now(), now(),
       #{enableStatus,jdbcType=INTEGER}, #{advice,jdbcType=VARCHAR})
   </insert>
-  <insert id="insertSelective" parameterType="com.imooc.o2o.pojo.Shop"  useGeneratedKeys="true" keyProperty="userId">
+  <insert id="insertSelective" parameterType="com.imooc.o2o.pojo.Shop"  useGeneratedKeys="true" keyProperty="shopId">
     insert into tb_shop
     <trim prefix="(" suffix=")" suffixOverrides="," >
       <if test="ownerId != null" >
