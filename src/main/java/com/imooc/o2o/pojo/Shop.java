@@ -37,6 +37,35 @@ public class Shop {
 
     private String advice;
 
+    /** new */
+    private Area area;
+    private PersonInfo owener;
+    private ShopCategory shopCategory;
+
+    public Area getArea() {
+        return area;
+    }
+
+    public void setArea(Area area) {
+        this.area = area;
+    }
+
+    public PersonInfo getOwener() {
+        return owener;
+    }
+
+    public void setOwener(PersonInfo owener) {
+        this.owener = owener;
+    }
+
+    public ShopCategory getShopCategory() {
+        return shopCategory;
+    }
+
+    public void setShopCategory(ShopCategory shopCategory) {
+        this.shopCategory = shopCategory;
+    }
+
     public Shop(Integer shopId, Integer ownerId, Integer areaId, Integer shopCategoryId, Integer parentCategoryId, String shopName, String shopDesc, String shopAddr, String phone, String shopImg, Double longitude, Double latitude, Integer priority, Date createTime, Date lastEditTime, Integer enableStatus, String advice) {
         this.shopId = shopId;
         this.ownerId = ownerId;

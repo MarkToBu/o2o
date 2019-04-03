@@ -2,9 +2,9 @@ import com.imooc.o2o.dao.AreaMapper;
 import com.imooc.o2o.dao.ShopCategoryMapper;
 import com.imooc.o2o.dao.ShopMapper;
 import com.imooc.o2o.pojo.Area;
-import com.imooc.o2o.pojo.PersonInfo;
 import com.imooc.o2o.pojo.Shop;
 import com.imooc.o2o.pojo.ShopCategory;
+import org.junit.Ignore;
 import org.junit.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 
@@ -20,6 +20,23 @@ public class DaoTest extends  BaseTest{
         private ShopMapper shopMapper;
         @Autowired
         private ShopCategoryMapper shopCategoryMapper;
+        @Test
+        public void testQueryAssociationShop(){
+            int shopId = 15;
+            Shop shop = shopMapper.queryByShopIdAssociation(shopId);
+            System.out.println(shop.getArea().getAreaName());
+            System.out.println(shop.getArea().getAreaDesc());
+        }
+
+        @Test
+        @Ignore
+        public void testQueryByShopId(){
+            int shopId = 15;
+            Shop shop = shopMapper.selectByPrimaryKey(shopId);
+            Area area = areaMapper.selectByPrimaryKey(shop.getAreaId());
+            System.out.println(area.getAreaDesc());
+            System.out.println(area.getAreaName());
+        }
 
         @Test
         public void insertArea(){

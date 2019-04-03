@@ -26,7 +26,7 @@ public class ImageUtil {
             Thumbnails.of(thumbnail).size(200,200).watermark(Positions.TOP_RIGHT,ImageIO.read(new File(basePath +"watermark.jpg")),0.2f)
                     .outputQuality(0.8f).toFile(dest);
         }catch (Exception ex){
-            throw new RuntimeException("创建缩略图失败" + extension.toString());
+            throw new RuntimeException("创建缩略图失败" + extension);
         }
         return relativeAddr;
 
@@ -44,6 +44,18 @@ public class ImageUtil {
     private static String getFileExtension(String fileName){
         //String originalFileName = cFile.getOriginalFilename();
         return fileName.substring(fileName.lastIndexOf("."));
+    }
+    public static void deleteFileOrPath(String storePath){
+        File fileOrPath = new File(FileUtil.getImgBasePath()+storePath);
+        if(fileOrPath.exists()){
+            if(fileOrPath.isDirectory()){
+                File[] files = fileOrPath.listFiles();
+                for(int i=0;i<files.length;i++){
+                    files[i].delete();
+                }
+            }
+            fileOrPath.delete();
+        }
     }
 
 }

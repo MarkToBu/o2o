@@ -1,8 +1,12 @@
 /**
  * */
 $(function () {
+    var shopId = getQueryString('shopId');
+    var isEdit = shopId ? true : false;
     var initUrl = '/shopadmin/getshopinitinfo';
     var registerShopUrl = '/shopadmin/registershop';
+    var shopInfoUrl = '/shopadmin/getshopbyid?shopId=' + shopId ;
+    var editShopUrl = '/shopadmin/modifyshop'
     /*alert(initUrl);*/
     getShopInitfo();
     function getShopInitfo(){
