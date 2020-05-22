@@ -43,6 +43,7 @@ public class ShopManagementController {
 
     /** 注册店铺所用到的方法 */
     @RequestMapping(value = "registershop",method = RequestMethod.POST)
+    @ResponseBody
     private Map<String,Object> registerShop(HttpServletRequest request){
         Map<String,Object> modelMap = new HashMap<>();
         if(!CodeUtil.checkVerifyCode(request)){
@@ -77,7 +78,8 @@ public class ShopManagementController {
         //注册店铺
         if(shop != null && shopImg != null){
             PersonInfo owner = (PersonInfo) request.getSession().getAttribute("user");
-            shop.setOwnerId(owner.getUserId());
+//            shop.setOwnerId(owner.getUserId()); fixme
+            shop.setOwnerId(10);
             shop.setOwener(owner);
             File shopImgFile = new File(FileUtil.getImgBasePath() + FileUtil.getRandomFileName());
             if(!shopImgFile.exists()){

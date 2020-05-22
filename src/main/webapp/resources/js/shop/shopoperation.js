@@ -1,11 +1,11 @@
 /**
  * */
 $(function () {
-    var shopId = getQueryString('shopId');
-    var isEdit = shopId ? true : false;
+    // var shopId = getQueryString('shopId');
+    // var isEdit = shopId ? true : false;
     var initUrl = '/o2o/shopadmin/getshopinitinfo';
     var registerShopUrl = '/o2o/shopadmin/registershop';
-    var shopInfoUrl = '/o2o/shopadmin/getshopbyid?shopId=' + shopId ;
+    // var shopInfoUrl = '/o2o/shopadmin/getshopbyid?shopId=' + shopId ;
     var editShopUrl = '/o2o/shopadmin/modifyshop';
     /*alert(initUrl);*/
     getShopInitfo();
@@ -71,6 +71,11 @@ $(function () {
                     }else{
                         $.toast('提交失败!' + data.errMsg);
                     }
+                    $('#captcha_img').click();
+                },
+                error: function(msg) {
+                    log.error(msg)
+                    $.toast('提交失败!' + data.errMsg);
                     $('#captcha_img').click();
                 }
             })
