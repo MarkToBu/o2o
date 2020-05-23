@@ -142,4 +142,8 @@
       parent_id = #{parentId,jdbcType=INTEGER}
     where shop_category_id = #{shopCategoryId,jdbcType=INTEGER}
   </update>
+
+  <select id="queryShopCategory" resultType="com.imooc.o2o.pojo.ShopCategory">
+
+  </select>
 </mapper>

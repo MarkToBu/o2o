@@ -19,4 +19,7 @@ public interface ShopCategoryMapper {
     int updateByPrimaryKey(ShopCategory record);
 
     List<ShopCategory> selectShopCategoryByParentId(@Param("parentCategoryId") Integer parentCategoryId);
+
+
+    List<ShopCategory> queryShopCategory(@Param("shopCategory") ShopCategory category);
 }

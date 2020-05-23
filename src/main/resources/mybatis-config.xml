@@ -16,4 +16,9 @@
 		<!-- 打印查询语句 -->
 		<setting name="logImpl" value="STDOUT_LOGGING" />
 	</settings>
+
+    <!-- mybatis读写分离配置 -->
+<!--	<plugins>-->
+<!--		<plugin interceptor="com.imooc.o2o.dao.split.DynamicDataSourceInterceptor"></plugin>-->
+<!--	</plugins>-->
 </configuration>

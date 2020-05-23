@@ -7,9 +7,10 @@ import java.util.Random;
 
 public class FileUtil {
 	private static String seperator = System.getProperty("file.separator");
-	private static final SimpleDateFormat sDateFormat = new SimpleDateFormat(
-			"yyyyMMddHHmmss"); // 时间格式化的格式
-	private static final Random r = new Random();
+	// 时间格式化的格式
+	private static final SimpleDateFormat dateFormat = new SimpleDateFormat(
+			"yyyyMMddHHmmss");
+	private static final Random random = new Random();
 
 	public static String getImgBasePath() {
 		String os = System.getProperty("os.name");
@@ -53,8 +54,10 @@ public class FileUtil {
 
 	public static String getRandomFileName() {
 		// 生成随机文件名：当前年月日时分秒+五位随机数（为了在实际项目中防止文件同名而进行的处理）
-		int rannum = (int) (r.nextDouble() * (99999 - 10000 + 1)) + 10000; // 获取随机数
-		String nowTimeStr = sDateFormat.format(new Date()); // 当前时间
+		// 获取随机数
+		int rannum = (int) (random.nextDouble() * (99999 - 10000 + 1)) + 10000;
+		// 当前时间
+		String nowTimeStr = dateFormat.format(new Date());
 		return nowTimeStr + rannum;
 	}
 
@@ -64,7 +67,7 @@ public class FileUtil {
 		File file = new File(getImgBasePath() + storePath);
 		if (file.exists()) {
 			if (file.isDirectory()) {
-				File files[] = file.listFiles();
+				File[] files = file.listFiles();
 				for (int i = 0; i < files.length; i++) {
 					files[i].delete();
 				}

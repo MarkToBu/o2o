@@ -26,7 +26,7 @@ public class ShopServiceImpl implements IShopService {
      * 添加店铺
      */
     @Override
-    @Transactional
+    @Transactional(rollbackFor = Exception.class)
     public ShopExecution addShop(Shop shop, InputStream shopImgInputStream, String fileName) {
         if (shop == null) {
             return new ShopExecution(ShopStateEnum.NULL_SHOP);
